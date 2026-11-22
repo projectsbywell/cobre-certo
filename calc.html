@@ -2,7 +2,11 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calculadora de preço por hora — autônomo/MEI</title>
 <meta name="description" content="Calcule quanto cobrar por hora de trabalho considerando seus custos e lucro desejado. Grátis e sem cadastro.">
 <style>
@@ -75,5 +79,8 @@ document.getElementById('btn').addEventListener('click',()=>{
   res.style.display='block';
 });
 </script>
+<footer class="footer">
+<p>© 2026 Cobre Certo. Conteúdo informativo, não substitui orientação contábil ou jurídica. <a href="sobre.html">Sobre</a> · <a href="privacidade.html">Privacidade</a> · <a href="termos.html">Termos</a></p>
+</footer>
 </body>
 </html>
