@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de preço por hora — autônomo/MEI</title>
+<meta name="description" content="Calcule quanto cobrar por hora de trabalho considerando seus custos e lucro desejado. Grátis e sem cadastro.">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;color:#111;background:#f5f7fa}
+  header{background:#fff;border-bottom:1px solid #e5e5e5;position:sticky;top:0;z-index:10}
+  .inner{display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
+  .brand{font-weight:800;font-size:1.1rem;color:#0b5ed6;text-decoration:none}
+  .back{font-size:.9rem;color:#0b5ed6;text-decoration:none}
+  .container{max-width:720px;margin:0 auto;padding:20px 16px}
+  h1{font-size:1.4rem;margin-bottom:6px}
+  p.sub{font-size:.95rem;color:#555;margin-bottom:20px}
+  .card{background:#fff;border:1px solid #e5e5e5;border-radius:14px;padding:20px;margin-bottom:20px}
+  label{display:block;font-size:.85rem;font-weight:700;margin:14px 0 6px;color:#333}
+  input{width:100%;padding:10px 12px;border:1px solid #d1d5db;border-radius:8px;font-size:1rem;background:#fff}
+  .result{background:#eef6ff;border:1px solid #bcdbff;border-radius:10px;padding:16px;margin-top:18px;display:none}
+  .result b{font-size:1.3rem;color:#0b5ed6}
+  button{width:100%;margin-top:16px;padding:12px;background:#0b5ed6;color:#fff;border:none;border-radius:8px;font-weight:700;font-size:1rem;cursor:pointer}
+  button:hover{background:#0a53b5}
+  .note{font-size:.8rem;color:#666;margin-top:12px}
+  a{color:#0b5ed6;text-decoration:none}
+  a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<header><div class="inner"><a class="back" href="index.html">&#8592; Voltar</a><a class="brand" href="index.html">&#36; Cobrar Autônomo</a></div></header>
+<div class="container">
+<h1>Calculadora de preço por hora</h1>
+<p class="sub">Descubra quanto vale sua hora de trabalho. Preencha com seus valores reais.</p>
+
+<div class="card">
+<label>Renda líquida que você quer por mês (R$)</label>
+<input type="number" id="renda" placeholder="Ex: 3000" value="3000">
+
+<label>Horas trabalhadas por mês (ex.: 160)</label>
+<input type="number" id="horas" placeholder="Ex: 160" value="160">
+
+<label>Custos mensais com o trabalho (R$)</label>
+<input type="number" id="custos" placeholder="Ex: 300" value="300">
+
+<label>Lucro desejado sobre o custo (%)</label>
+<input type="number" id="lucro" placeholder="Ex: 20" value="20" min="0" max="100">
+
+<button id="btn">Calcular preço por hora</button>
+
+<div class="result" id="resultado">
+<p>Seu preço sugerido por hora:</p>
+<p><b id="valor">R$ 0,00</b></p>
+<p class="note">Isso cobre seus custos, paga sua renda e inclui o lucro definido.</p>
+</div>
+
+<p class="note">Dica: se o valor ficar muito alto para seu mercado, reveja horas ou custos. Não esquece de reservar para INSS e impostos, quando aplicável.</p>
+</div>
+
+<p style="margin-top:16px;font-size:.85rem;color:#666">Calcule localmente no seu navegador. Nenhum dado é enviado.</p>
+</div>
+
+<script>
+document.getElementById('btn').addEventListener('click',()=>{
+  const renda=parseFloat(document.getElementById('renda').value)||0;
+  const horas=parseFloat(document.getElementById('horas').value)||0;
+  const custos=parseFloat(document.getElementById('custos').value)||0;
+  const lucroPct=parseFloat(document.getElementById('lucro').value)||0;
+  if(horas<=0){document.getElementById('resultado').style.display='none';return;}
+  const base=(renda+custos)/horas;
+  const comLucro=base*(1+lucroPct/100);
+  const res=document.getElementById('resultado');
+  const v=document.getElementById('valor');
+  v.textContent='R$ '+comLucro.toFixed(2).replace('.',',');
+  res.style.display='block';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://projectsbywell.github.io/site-autonomo/sitemap.xml
