@@ -31,3 +31,7 @@ Site estático com guias práticos e calculadora de preço por hora para autôno
 - Adicionar mais artigos no nicho.
 - Solicitar Google AdSense quando tiver tráfego orgânico.
 - Criar domínio próprio depois de validar audiência.
+
+
+## Monetização e deploy
+Veja [GUIA-LUCRO.md](GUIA-LUCRO.md) para Search Console, AdSense, tráfego e migração Cloudflare Pages.
